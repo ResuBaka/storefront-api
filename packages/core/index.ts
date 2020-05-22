@@ -91,6 +91,9 @@ export class Server {
     });
 
     this.express.use(catchInvalidRequests);
+    this.express.use((_req, res, _next) => {
+      res.status(404).send();
+    });
   }
 
   public registerDefaultMiddlewares (): void {
